@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Filament\Resources\PostResource\Pages;
+namespace App\Filament\Resources\GalleryResource\Pages;
 
-use App\Filament\Resources\PostResource;
+use App\Filament\Resources\GalleryResource;
 use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
 
-class EditPost extends EditRecord
+class EditGallery extends EditRecord
 {
-    protected static string $resource = PostResource::class;
+    protected static string $resource = GalleryResource::class;
 
     protected function getHeaderActions(): array
     {

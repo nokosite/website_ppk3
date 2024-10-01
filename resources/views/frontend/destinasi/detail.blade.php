@@ -10,8 +10,10 @@
             {{-- Hero Content --}}
             <div class="absolute inset-0 flex flex-col justify-center items-center text-center p-6">
                 <div class="container mx-auto">
-                    <h1 class="font-nanum font-bold text-white capitalize text-4xl sm:text-4xl md:text-5xl lg:text-6xl">
-                        Destinasi Goa Raja
+                <span class="text-green-900 bg-green-200 py-0 px-1 rounded">{{ $destination->author->name}}</span> -
+                <span class="text-blue-900 bg-blue-200 py-0 px-1 rounded">{{ $destination->category->name }}</span>
+                    <h1 class="mt-4 font-nanum font-bold text-white capitalize text-4xl sm:text-4xl md:text-5xl lg:text-6xl">
+                        Destinasi {{ $destination->judul }}
                     </h1>
                 </div>
             </div>
@@ -20,14 +22,16 @@
         <div class="container mx-auto px-4 py-12">
             <div class="flex flex-wrap items-center">
                 <!-- Left Content -->
-                <div class="w-full lg:w-1/2 px-4 mb-10">
-                    <img class="max-w-[600px] rounded-md" src="{{ asset('assets/bg2.jpg') }}">
+                <div class="w-full px-4 mb-10">
+                    <img class="rounded-md" src="{{ Storage::url($destination->gambar) }}">
                 </div>
 
                 <!-- Right Content -->
-                <div class="w-full lg:w-1/2 px-4">
-                    <h4 class="font-bold uppercase text-sky-500 text-3xl mb-3">Tentang Goa Raja</h4>
-                    <p class="text-base text-slate-500 mb-6">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequatur doloribus illo cum quam accusantium quos, similique nobis deleniti, optio quas sed esse labore dolor consequuntur enim! Necessitatibus architecto saepe inventore vero vel deleniti sapiente repudiandae quae voluptate repellendus, velit qui, quo quod illum impedit optio itaque molestiae, nemo iure sit delectus. Asperiores dolorem amet exercitationem cum dicta nobis pariatur molestiae sed debitis possimus et veritatis, eius perferendis, molestias adipisci dolore in deserunt optio fugit, quos ipsa labore suscipit. Dignissimos est deleniti esse nesciunt fugiat, accusamus cum. Totam corrupti ipsum nemo? Dolores necessitatibus perspiciatis molestias ratione quis aperiam provident, corrupti facere temporibus nisi nobis est repudiandae recusandae fuga eius facilis? Neque voluptatem autem quae, amet consequatur ducimus mollitia similique sunt quo itaque iste earum ullam vero accusamus eaque veniam quod libero dolorem velit blanditiis impedit. Explicabo cumque, ipsum adipisci voluptas est aliquid quis a, modi unde nemo quas dolorem vero vitae voluptate numquam minus quibusdam? Veritatis quia sint dolores animi consectetur quo enim ducimus, autem dicta minus nemo quas exercitationem unde aliquam sunt perspiciatis culpa distinctio consequuntur numquam error itaque voluptas? Delectus expedita inventore omnis fuga? Soluta, autem sequi voluptatem a iure magni nobis, rerum nulla alias pariatur fugit sint nisi!</p>
+                <div class="w-full px-4">
+                    <h4 class="font-bold uppercase text-sky-500 text-3xl mb-3">Tentang {{ $destination->judul }}</h4>
+                    <p class="text-base text-slate-500 mb-6">
+                        {!! $destination->description !!}
+                    </p>
                 </div>
             </div>
         </div>
@@ -41,34 +45,12 @@
             <!-- Masonry Grid Wrapper -->
             <div class="columns-1 md:columns-2 lg:columns-3 gap-4 space-y-4">
                 <!-- Image 1 -->
-                <div class="break-inside-avoid">
-                    <img src="{{ asset('assets/bg.jpeg') }}" alt="Galeri Image 1" class="w-full h-auto rounded-lg shadow-lg">
-                </div>
+                @foreach($destination->destination_galleries as $gallery)
+                    <div class="break-inside-avoid">
+                        <img src="{{ Storage::url($gallery->gallery) }}" alt="Galeri Image 1" class="w-full h-auto rounded-lg shadow-lg">
+                    </div>
+                @endforeach
                 
-                <!-- Image 2 -->
-                <div class="break-inside-avoid">
-                    <img src="{{ asset('assets/bg.jpeg') }}" alt="Galeri Image 2" class="w-full h-auto rounded-lg shadow-lg">
-                </div>
-    
-                <!-- Image 3 -->
-                <div class="break-inside-avoid">
-                    <img src="{{ asset('assets/bg2.png') }}" alt="Galeri Image 3" class="w-full h-auto rounded-lg shadow-lg">
-                </div>
-    
-                <!-- Image 4 -->
-                <div class="break-inside-avoid">
-                    <img src="{{ asset('assets/bg.jpeg') }}" alt="Galeri Image 4" class="w-full h-auto rounded-lg shadow-lg">
-                </div>
-    
-                <!-- Image 5 -->
-                <div class="break-inside-avoid">
-                    <img src="{{ asset('assets/bg.jpeg') }}" alt="Galeri Image 5" class="w-full h-auto rounded-lg shadow-lg">
-                </div>
-    
-                <!-- Image 6 -->
-                <div class="break-inside-avoid">
-                    <img src="{{ asset('assets/bg2.png') }}" alt="Galeri Image 6" class="w-full h-auto rounded-lg shadow-lg">
-                </div>
             </div>
         </div>
 @endsection

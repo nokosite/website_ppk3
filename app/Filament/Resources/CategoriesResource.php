@@ -4,7 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\CategoriesResource\Pages;
 use App\Filament\Resources\CategoriesResource\RelationManagers;
-use App\Models\Categories;
+use App\Models\Category;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -16,7 +16,7 @@ use Illuminate\Support\Str;
 
 class CategoriesResource extends Resource
 {
-    protected static ?string $model = Categories::class;
+    protected static ?string $model = Category::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -41,7 +41,7 @@ class CategoriesResource extends Resource
                     ->dehydrated()
                     ->required()
                     ->maxLength(255)
-                    ->unique(Categories::class, 'slug', ignoreRecord: true),
+                    ->unique(Category::class, 'slug', ignoreRecord: true),
 
                 Forms\Components\Toggle::make('is_visible')
                     ->label('Visible to Landing Page.')

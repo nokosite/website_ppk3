@@ -11,7 +11,7 @@
             <div class="absolute inset-0 flex flex-col justify-center items-center text-center p-6">
                 <div class="container mx-auto">
                     <h1 class="font-nanum font-bold text-white capitalize text-4xl sm:text-4xl md:text-5xl lg:text-6xl">
-                        Jelajahi Destinasi Yang Anda Inginkan
+                       Kategori {{ $category->name }}
                     </h1>
                 </div>
             </div>
@@ -24,7 +24,7 @@
 
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
                 {{-- Card 1 --}}
-                @foreach($destinations as $destination)
+                @foreach($category->destinations as $destination)
                     <div class="relative overflow-hidden rounded-2xl shadow-lg group">
                         <img class="h-64 w-full object-cover transition-transform group-hover:scale-110 duration-200"
                             src="{{ Storage::url($destination->gambar) }}" alt="Desa Jehem Image 1">

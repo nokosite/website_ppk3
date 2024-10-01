@@ -45,19 +45,24 @@
                     <nav id="nav-menu"
                         class="hidden lg:block absolute lg:static right-4 top-full lg:top-0 py-5 lg:py-0 bg-white lg:bg-transparent shadow-lg lg:shadow-none rounded-lg lg:rounded-none">
                         <ul class="font-mulish font-semibold capitalize lg:flex">
-                            <li class="group"><a href="#home"
+                            <li class="group"><a href="{{ route('home') }}"
                                     class="text-base text-black lg:text-white py-2 mx-8 flex group-hover:text-sky-500">Beranda</a>
                             </li>
                             <li class="group"><a href="#tentang"
                                     class="text-base text-black lg:text-white py-2 mx-8 flex group-hover:text-sky-500">Jelajahi</a>
                             </li>
-                            <li class="group"><a href="#destinasi"
-                                    class="text-base text-black lg:text-white py-2 mx-8 flex group-hover:text-sky-500">Destinasi</a>
+                            <li class="group"><a href="{{ route('destination') }}"
+                                    class="text-base text-black lg:text-white py-2 mx-8 flex group-hover:text-sky-500">Destination</a>
                             </li>
+                            @foreach($categories as $category) 
+                                <li class="group"><a href="{{ route('destination.category', $category->slug) }}"
+                                        class="text-base text-black lg:text-white py-2 mx-8 flex group-hover:text-sky-500">{{ $category->name }}</a>
+                                </li>
+                            @endforeach
                             <li class="group"><a href="#galeri"
                                     class="text-base text-black lg:text-white py-2 mx-8 flex group-hover:text-sky-500">Galeri</a>
                             </li>
-                            <li class="group"><a href="#login"
+                            <li class="group"><a href="{{ url('admin/login') }}"
                                     class="text-base text-black lg:text-white py-2 mx-8 flex group-hover:text-sky-500">Login</a>
                             </li>
                         </ul>

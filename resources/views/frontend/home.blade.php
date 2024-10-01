@@ -3,15 +3,7 @@
 @section('content')
     {{-- Hero Section Start --}}
     <section id="home">
-        <div class="relative w-full h-screen bg-no-repeat bg-center bg-cover bg-fixed"
-        @foreach ($sliders as $slider)
-            @if($slider->thumbnail && Storage::exists($slider->thumbnail))
-                style="background-image: url({{ Storage::url($slider->thumbnail) }});"
-            @else
-                style="background-color: #e5e7eb;" {{-- Placeholder background color --}}
-            @endif
-            @endforeach
-        >
+        <div class="relative w-full h-screen bg-no-repeat bg-center bg-cover bg-fixed" style="background-image: url({{ asset('assets/bg.jpeg') }})">
             <div class="absolute inset-0 bg-black opacity-50"></div>
             <div class="absolute inset-0 flex flex-col justify-center items-center text-center p-6">
                 <div class="container mx-auto">
@@ -78,58 +70,25 @@
 
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
                 {{-- Card 1 --}}
+                @foreach($destinations as $destination)
                 <div class="relative overflow-hidden rounded-2xl shadow-lg group">
                     <img class="h-64 w-full object-cover transition-transform group-hover:scale-110 duration-200"
-                        src="{{ asset('assets/bg.jpeg') }}" alt="Desa Jehem Image 1">
+                        src="{{ Storage::url($destination->gambar) }}" alt="Desa Jehem Image 1">
                     <div class="absolute inset-0 flex items-end bg-gradient-to-t from-black/60 to-transparent">
                         <div class="p-4 text-white">
-                            <h3 class="text-xl font-bold mb-2">Mahes Kanoko</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, ratione?</p>
+                            <span class="text-green-900 bg-green-200 py-0 px-1 rounded">{{ $destination->author->name}}</span>
+                            <span class="text-blue-900 bg-blue-200 py-0 px-1 rounded"><a href="{{ route('destination.category', $destination->category->slug) }}">{{ $destination->category->name }}</a></span>
+                            <h3 class="text-xl font-bold mb-2">{{ $destination->title }}</h3>
+                            <p>{{ $destination->excerpt }}</p>
                             <div class="mt-4">
-                                <button
-                                    class="btn bg-white text-black px-4 py-2 rounded-md font-semibold hover:bg-sky-500 hover:text-white transition">
-                                    See More
-                                </button>
+                                <a href="{{ route('destination.show', $destination->slug) }}" class="btn bg-white text-black px-4 py-2 rounded-md font-semibold hover:bg-sky-500 hover:text-white transition">
+                                    See More</a>
                             </div>
                         </div>
                     </div>
                 </div>
+                @endforeach
 
-                {{-- Card 2 --}}
-                <div class="relative overflow-hidden rounded-2xl shadow-lg group">
-                    <img class="h-64 w-full object-cover transition-transform group-hover:scale-110 duration-200"
-                        src="{{ asset('assets/bg.jpeg') }}" alt="Desa Jehem Image 2">
-                    <div class="absolute inset-0 flex items-end bg-gradient-to-t from-black/60 to-transparent">
-                        <div class="p-4 text-white">
-                            <h3 class="text-xl font-bold mb-2">Gunung Batur</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, ratione?</p>
-                            <div class="mt-4">
-                                <button
-                                    class="btn bg-white text-black px-4 py-2 rounded-md font-semibold hover:bg-sky-500 hover:text-white transition">
-                                    See More
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                {{-- Card 3 --}}
-                <div class="relative overflow-hidden rounded-2xl shadow-lg group">
-                    <img class="h-64 w-full object-cover transition-transform group-hover:scale-110 duration-200"
-                        src="{{ asset('assets/bg.jpeg') }}" alt="Desa Jehem Image 3">
-                    <div class="absolute inset-0 flex items-end bg-gradient-to-t from-black/60 to-transparent">
-                        <div class="p-4 text-white">
-                            <h3 class="text-xl font-bold mb-2">Danau Beratan</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, ratione?</p>
-                            <div class="mt-4">
-                                <button
-                                    class="btn bg-white text-black px-4 py-2 rounded-md font-semibold hover:bg-sky-500 hover:text-white transition">
-                                    See More
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
 
         </div>
@@ -211,34 +170,12 @@
             <!-- Masonry Grid Wrapper -->
             <div class="columns-1 md:columns-2 lg:columns-3 gap-4 space-y-4">
                 <!-- Image 1 -->
-                <div class="break-inside-avoid">
-                    <img src="{{ asset('assets/bg.jpeg') }}" alt="Galeri Image 1" class="w-full h-auto rounded-lg shadow-lg">
-                </div>
+                 @foreach($galleries as $gallery)
+                    <div class="break-inside-avoid">
+                        <img src="{{ Storage::url($gallery->gallery) }}" alt="Galeri Image 1" class="w-full h-auto rounded-lg shadow-lg">
+                    </div>
+                @endforeach
                 
-                <!-- Image 2 -->
-                <div class="break-inside-avoid">
-                    <img src="{{ asset('assets/bg.jpeg') }}" alt="Galeri Image 2" class="w-full h-auto rounded-lg shadow-lg">
-                </div>
-    
-                <!-- Image 3 -->
-                <div class="break-inside-avoid">
-                    <img src="{{ asset('assets/bg2.png') }}" alt="Galeri Image 3" class="w-full h-auto rounded-lg shadow-lg">
-                </div>
-    
-                <!-- Image 4 -->
-                <div class="break-inside-avoid">
-                    <img src="{{ asset('assets/bg.jpeg') }}" alt="Galeri Image 4" class="w-full h-auto rounded-lg shadow-lg">
-                </div>
-    
-                <!-- Image 5 -->
-                <div class="break-inside-avoid">
-                    <img src="{{ asset('assets/bg.jpeg') }}" alt="Galeri Image 5" class="w-full h-auto rounded-lg shadow-lg">
-                </div>
-    
-                <!-- Image 6 -->
-                <div class="break-inside-avoid">
-                    <img src="{{ asset('assets/bg2.png') }}" alt="Galeri Image 6" class="w-full h-auto rounded-lg shadow-lg">
-                </div>
             </div>
         </div>
 
