@@ -3,7 +3,7 @@
 @section('content')
     {{-- Hero Section Start --}}
     <section id="home">
-        <div class="relative w-full h-screen bg-no-repeat bg-center bg-cover bg-fixed" style="background-image: url({{ asset('assets/bg.jpeg') }})">
+        <div class="relative w-full h-screen bg-no-repeat bg-center bg-cover bg-fixed" style="background-image: url({{ asset('assets/bg.webp') }})">
             <div class="absolute inset-0 bg-black opacity-50"></div>
             <div class="absolute inset-0 flex flex-col justify-center items-center text-center p-6">
                 <div class="container mx-auto">
@@ -109,49 +109,49 @@
                 <div class="flex flex-wrap items-center justify-center space-x-8 lg:space-x-12">
                     {{-- Logo 1 --}}
                     <a href="#" class="flex justify-center items-center max-w-[100px] sm:max-w-[120px] mx-4">
-                        <img class="w-full h-auto object-contain" src="{{ asset('assets/logo/bem.png') }}"
+                        <img class="w-full h-auto object-contain" src="{{ asset('assets/logo/bem.webp') }}"
                             alt="Logo Bem">
                     </a>
 
                     {{-- Logo 2 --}}
                     <a href="#" class="flex justify-center items-center max-w-[100px] sm:max-w-[120px] mx-4">
-                        <img class="w-full h-auto object-contain" src="{{ asset('assets/logo/desa_jehem.png') }}"
+                        <img class="w-full h-auto object-contain" src="{{ asset('assets/logo/desa_jehem.webp') }}"
                             alt="Logo Desa Jehem">
                     </a>
 
                     {{-- Logo 3 --}}
                     <a href="#" class="flex justify-center items-center max-w-[100px] sm:max-w-[120px] mx-4">
-                        <img class="w-full h-auto object-contain" src="{{ asset('assets/logo/kampusmerdeka.png') }}"
+                        <img class="w-full h-auto object-contain" src="{{ asset('assets/logo/kampusmerdeka.webp') }}"
                             alt="Logo Kampus Merdeka">
                     </a>
 
                     {{-- Logo 4 --}}
                     <a href="#" class="flex justify-center items-center max-w-[100px] sm:max-w-[120px] mx-4">
-                        <img class="w-full h-auto object-contain" src="{{ asset('assets/logo/kemendikbud.png') }}"
+                        <img class="w-full h-auto object-contain" src="{{ asset('assets/logo/kemendikbud.webp') }}"
                             alt="Logo Kemendikbud">
                     </a>
 
                     {{-- Logo 5 --}}
                     <a href="#" class="flex justify-center items-center max-w-[100px] sm:max-w-[120px] mx-4">
-                        <img class="w-full h-auto object-contain" src="{{ asset('assets/logo/logo_ppk.png') }}"
+                        <img class="w-full h-auto object-contain" src="{{ asset('assets/logo/logo_ppk.webp') }}"
                             alt="Logo PPK">
                     </a>
 
                     {{-- Logo 6 --}}
                     <a href="#" class="flex justify-center items-center max-w-[100px] sm:max-w-[120px] mx-4">
-                        <img class="w-full h-auto object-contain" src="{{ asset('assets/logo/ppk_ormawa.png') }}"
+                        <img class="w-full h-auto object-contain" src="{{ asset('assets/logo/ppk_ormawa.webp') }}"
                             alt="Logo PPK Ormawa">
                     </a>
 
                     {{-- Logo 7 --}}
                     <a href="#" class="flex justify-center items-center max-w-[100px] sm:max-w-[120px] mx-4">
-                        <img class="w-full h-auto object-contain" src="{{ asset('assets/logo/primu.png') }}"
+                        <img class="w-full h-auto object-contain" src="{{ asset('assets/logo/primu.webp') }}"
                             alt="Logo Primu">
                     </a>
 
                     {{-- Logo 8 --}}
                     <a href="#" class="flex justify-center items-center max-w-[100px] sm:max-w-[120px] mx-4">
-                        <img class="w-full h-auto object-contain" src="{{ asset('assets/logo_desa.png') }}"
+                        <img class="w-full h-auto object-contain" src="{{ asset('assets/logo/logo_desa.webp') }}"
                             alt="Logo Desa">
                     </a>
                 </div>
@@ -166,7 +166,7 @@
                 <h4 class="font-mulish font-semibold text-lg lg:text-xl capitalize">Galeri</h4>
                 <h2 class="font-nanum font-bold text-5xl lg:text-6xl capitalize text-sky-500">Galeri Desa Jehem</h2>
             </div>
-    
+
             <!-- Masonry Grid Wrapper -->
             <div class="columns-1 md:columns-2 lg:columns-3 gap-4 space-y-4">
                 <!-- Image 1 -->
@@ -175,7 +175,7 @@
                         <img src="{{ Storage::url($gallery->gallery) }}" alt="Galeri Image 1" class="w-full h-auto rounded-lg shadow-lg">
                     </div>
                 @endforeach
-                
+
             </div>
         </div>
 

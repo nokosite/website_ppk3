@@ -31,7 +31,7 @@
             <div class="flex items-center justify-between">
                 <!-- Left: Logo -->
                 <a href="#home" class="block py-9 w-12 h-12 bg-no-repeat bg-center bg-contain"
-                    style="background-image: url({{ asset('assets/logo_desa.png') }});"></a>
+                    style="background-image: url({{ asset('assets/logo/logo_desa.webp') }});"></a>
 
                 <!-- Right: Navigation -->
                 <div class="flex items-center">
@@ -54,7 +54,7 @@
                             <li class="group"><a href="{{ route('destination') }}"
                                     class="text-base text-black lg:text-white py-2 mx-8 flex group-hover:text-sky-500">Destination</a>
                             </li>
-                            @foreach($categories as $category) 
+                            @foreach($categories as $category)
                                 <li class="group"><a href="{{ route('destination.category', $category->slug) }}"
                                         class="text-base text-black lg:text-white py-2 mx-8 flex group-hover:text-sky-500">{{ $category->name }}</a>
                                 </li>
@@ -80,7 +80,7 @@
     <!-- Footer Start -->
     <footer>
         <div class="bg-sky-500 w-ful p-12 flex flex-col items-center">
-            <img class="max-w-[120px]" src="{{ asset('assets/logo_desa.png') }}">
+            <img class="max-w-[120px]" src="{{ asset('assets/logo/logo_desa.webp') }}">
             <p class="mt-3 font-light text-center text-white">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro perferendis iusto odio laboriosam dolore beatae exercitationem ullam! Quisquam, quam. Ut.
             </p>
