@@ -16,7 +16,7 @@
                     <p class="font-semibold italic text-white text-sm sm:text-base md:text-lg lg:text-xl mt-5 mb-10">
                         Explore and discover travel experiences
                     </p>
-                    <a href="#jelajahi"
+                    <a href="{{ route('destination') }}"
                         class="text-base font-semibold text-white bg-sky-500 py-2 px-6 rounded-lg hover:shadow-lg transition duration-300">See
                         More</a>
                 </div>
