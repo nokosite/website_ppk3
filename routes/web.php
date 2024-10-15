@@ -14,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [\App\Http\Controllers\Frontend\HomeController::class, 'index'])->name('home');
+
+Route::get('galeri', [\App\Http\Controllers\Frontend\GalleryController::class, 'index'])->name('galeri');
+
 Route::get('destinasi', [\App\Http\Controllers\Frontend\DestinasiController::class, 'index'])->name('destination');
 Route::get('destinasi/{destination:slug}', [\App\Http\Controllers\Frontend\DestinasiController::class, 'show'])->name('destination.show');
 Route::get('destinasi/kategori/{category:slug}', [\App\Http\Controllers\Frontend\DestinasiController::class, 'category'])->name('destination.category');

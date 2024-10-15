@@ -24,7 +24,8 @@ class AdminPanelProvider extends PanelProvider
 public function panel(Panel $panel): Panel
     {
         return $panel
-            ->brandName('Admin Panel')
+            ->brandLogo(asset('assets/logo/desa_jehem.webp'))
+            ->brandLogoHeight('4rem')
             ->default()
             ->id('admin')
             ->path('admin')
