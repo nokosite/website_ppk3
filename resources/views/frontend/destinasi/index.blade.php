@@ -3,7 +3,7 @@
 @section('content')
     <section id="index-destinasi">
         <div id="home" class="relative w-full h-screen bg-no-repeat bg-center bg-cover bg-fixed"
-            style="background-image: url({{ asset('assets/bg2.jpg') }});">
+            style="background-image: url({{ asset('assets/bg.webp') }});">
             {{-- Overlay --}}
             <div class="absolute inset-0 bg-black opacity-50"></div>
 
@@ -19,7 +19,7 @@
 
         <div class="container mx-auto px-4 py-36 sm:px-6 lg:px-8">
             <div class="text-center mb-10">
-                <h2 class="font-nanum font-bold text-3xl lg:text-4xl capitalize text-sky-900">Anda Mau Kemana?</h2>
+                <h2 class="font-nanum font-bold text-3xl lg:text-4xl capitalize text-sky-900">Destinasi</h2>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">

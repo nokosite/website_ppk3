@@ -76,8 +76,6 @@
                         src="{{ Storage::url($destination->gambar) }}" alt="Desa Jehem Image 1">
                     <div class="absolute inset-0 flex items-end bg-gradient-to-t from-black/60 to-transparent">
                         <div class="p-4 text-white">
-                            <span class="text-green-900 bg-green-200 py-0 px-1 rounded">{{ $destination->author->name}}</span>
-                            <span class="text-blue-900 bg-blue-200 py-0 px-1 rounded"><a href="{{ route('destination.category', $destination->category->slug) }}">{{ $destination->category->name }}</a></span>
                             <h3 class="text-xl font-bold mb-2">{{ $destination->title }}</h3>
                             <p>{{ $destination->excerpt }}</p>
                             <div class="mt-4">
@@ -166,18 +164,28 @@
                 <h4 class="font-mulish font-semibold text-lg lg:text-xl capitalize">Galeri</h4>
                 <h2 class="font-nanum font-bold text-5xl lg:text-6xl capitalize text-sky-500">Galeri Desa Jehem</h2>
             </div>
-
+    
             <!-- Masonry Grid Wrapper -->
             <div class="columns-1 md:columns-2 lg:columns-3 gap-4 space-y-4">
-                <!-- Image 1 -->
-                 @foreach($galleries as $gallery)
-                    <div class="break-inside-avoid">
-                        <img src="{{ Storage::url($gallery->gallery) }}" alt="Galeri Image 1" class="w-full h-auto rounded-lg shadow-lg">
-                    </div>
+                @foreach($galleries->take(3) as $gallery) <!-- Menampilkan maksimal 3 foto -->
+                <div class="break-inside-avoid">
+                    <img src="{{ Storage::url($gallery->gallery) }}" 
+                         alt="Galeri Image" 
+                         class="w-full h-auto rounded-lg shadow-lg">
+                </div>
                 @endforeach
-
             </div>
+    
+            <!-- Tombol "See More" jika foto lebih dari 3 -->
+            @if($gallery->count() > 3)
+            <div class="text-center mt-8">
+                <a href="{{ route('galeri') }}"
+                   class="bg-sky-500 text-white px-6 py-2 rounded-md hover:bg-sky-700 transition">
+                    See More
+                </a>
+            </div>
+            @endif
         </div>
-
     </section>
+    
 @endsection
