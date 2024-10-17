@@ -209,6 +209,16 @@
                 dropdownMenu.classList.add('hidden');
             }
         });
+
+        // Untuk loading 
+        document.addEventListener('DOMContentLoaded', function () {
+            setTimeout(function () {
+                // Sembunyikan indikator loading dan tampilkan konten galeri
+                document.getElementById('loading').classList.add('hidden');
+                document.getElementById('galeri-content').classList.remove('hidden');
+            }, 5000); // 5 detik delay
+        });
+
     </script>
 </body>
 
