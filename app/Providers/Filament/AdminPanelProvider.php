@@ -30,7 +30,7 @@ public function panel(Panel $panel): Panel
             ->id('admin')
             ->path('admin')
             ->login()
-            ->registertion(RegistrationBaru::class)
+            ->registration(RegistrationBaru::class)
             ->colors([
                 'primary' => Color::Amber,
             ])
