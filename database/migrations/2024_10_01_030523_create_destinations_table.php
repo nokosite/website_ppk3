@@ -20,6 +20,7 @@ return new class extends Migration
             $table->text('gambar');
             $table->text('excerpt');
             $table->longText('description');
+            $table->longText('google_maps');
             $table->timestamps();
         });
     }
