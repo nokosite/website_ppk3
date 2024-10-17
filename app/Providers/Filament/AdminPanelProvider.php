@@ -18,6 +18,7 @@ use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use App\Filament\Pages\RegistrationBaru;
+use App\Filament\Resources\RegistrationResource\Pages\RegistrationBaru;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -30,7 +31,7 @@ public function panel(Panel $panel): Panel
             ->id('admin')
             ->path('admin')
             ->login()
-            ->registration(RegistrationBaru::class) 
+            ->registertion(RegistrationBaru::class)
             ->colors([
                 'primary' => Color::Amber,
             ])
