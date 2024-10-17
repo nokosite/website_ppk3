@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Pages;
+namespace App\Filament\Resources\RegistrationResource\Pages;
  
 use Filament\Forms\Form;
 use Filament\Pages\Auth\Register;
