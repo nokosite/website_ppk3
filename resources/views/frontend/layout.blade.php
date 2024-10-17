@@ -120,43 +120,49 @@
     {{-- Dinamic Seksion END --}}
 
     <!-- Footer Start -->
-    <footer class="bg-white py-32">
-        <div class="container mx-auto px-6 md:px-12 lg:px-24 flex flex-col md:flex-row justify-between items-center">
-            <!-- Logo dan Nama Website -->
-            <div class="flex items-center space-x-3">
-                <img src="{{ asset('assets/logo/logo_desa.webp') }}" alt="Logo" class="w-16">
-                <span class="text-2xl font-bold text-sky-900">Desa Wisata Jehem</span>
-            </div>
+    <footer class="bg-white py-16">
+        <div class="container mx-auto px-6 md:px-12 lg:px-24">
+            <div class="flex flex-col lg:flex-row justify-between items-center lg:items-start gap-12">
+                <!-- Logo dan Nama Website -->
+                <div class="flex items-center space-x-3">
+                    <img src="{{ asset('assets/logo/logo_desa.webp') }}" alt="Logo" class="w-16">
+                    <span class="text-2xl font-bold text-sky-900">Desa Wisata Jehem</span>
+                </div>
     
-            <!-- Kolom Layanan -->
-            <div class="mt-8 md:mt-0">
-                <h3 class="text-lg font-semibold text-sky-900">LAYANAN</h3>
-                <ul class="mt-4 space-y-2">
-                    <li><a href="#" class="text-gray-700 hover:text-sky-500">Saran Destinasi</a></li>
-                    <li><a href="#" class="text-gray-700 hover:text-sky-500">Hubungi Kami</a></li>
-                </ul>
-            </div>
+                <!-- Kolom Layanan, Dukungan, Ikuti Kami -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left">
+                    <!-- Kolom Layanan -->
+                    <div>
+                        <h3 class="text-lg font-semibold text-sky-900">LAYANAN</h3>
+                        <ul class="mt-4 space-y-2">
+                            <li><a href="#" class="text-gray-700 hover:text-sky-500">Saran Destinasi</a></li>
+                            <li><a href="#" class="text-gray-700 hover:text-sky-500">Hubungi Kami</a></li>
+                        </ul>
+                    </div>
     
-            <!-- Kolom Dukungan -->
-            <div class="mt-8 md:mt-0">
-                <h3 class="text-lg font-semibold text-sky-900">DUKUNGAN</h3>
-                <ul class="mt-4 space-y-2">
-                    <li><a href="#" class="text-gray-700 hover:text-sky-500">Tentang Desa Wisata Jehem</a></li>
-                    <li><a href="#" class="text-gray-700 hover:text-sky-500">Ketentuan</a></li>
-                    <li><a href="#" class="text-gray-700 hover:text-sky-500">Kebijakan Privasi</a></li>
-                </ul>
-            </div>
+                    <!-- Kolom Dukungan -->
+                    <div>
+                        <h3 class="text-lg font-semibold text-sky-900">DUKUNGAN</h3>
+                        <ul class="mt-4 space-y-2">
+                            <li><a href="#" class="text-gray-700 hover:text-sky-500">Tentang Desa Wisata Jehem</a></li>
+                            <li><a href="#" class="text-gray-700 hover:text-sky-500">Ketentuan</a></li>
+                            <li><a href="#" class="text-gray-700 hover:text-sky-500">Kebijakan Privasi</a></li>
+                        </ul>
+                    </div>
     
-            <!-- Ikuti Kami Di -->
-            <div class="mt-8 md:mt-0">
-                <h3 class="text-lg font-semibold text-sky-900">IKUTI KAMI DI</h3>
-                <ul class="mt-4 space-y-2">
-                    <li><a href="#" class="text-gray-700 hover:text-sky-500">Instagram</a></li>
-                    <li><a href="#" class="text-gray-700 hover:text-sky-500">Facebook</a></li>
-                </ul>
+                    <!-- Kolom Ikuti Kami Di -->
+                    <div>
+                        <h3 class="text-lg font-semibold text-sky-900">IKUTI KAMI DI</h3>
+                        <ul class="mt-4 space-y-2">
+                            <li><a href="https://linktr.ee/desawisatajehem" target="_blank" class="text-gray-700 hover:text-sky-500">LinkTree</a></li>
+                            <li><a href="#" class="text-gray-700 hover:text-sky-500"></a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </footer>
+    
     
     <!-- Footer End -->
     <script>
