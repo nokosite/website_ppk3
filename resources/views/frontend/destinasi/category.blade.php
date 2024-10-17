@@ -3,7 +3,7 @@
 @section('content')
     <section id="index-destinasi">
         <div id="home" class="relative w-full h-screen bg-no-repeat bg-center bg-cover bg-fixed"
-            style="background-image: url({{ asset('assets/bg2.jpg') }});">
+            style="background-image: url({{ asset('assets/bg3.webp') }});">
             {{-- Overlay --}}
             <div class="absolute inset-0 bg-black opacity-50"></div>
 
@@ -11,7 +11,7 @@
             <div class="absolute inset-0 flex flex-col justify-center items-center text-center p-6">
                 <div class="container mx-auto">
                     <h1 class="font-nanum font-bold text-white capitalize text-4xl sm:text-4xl md:text-5xl lg:text-6xl">
-                       Kategori {{ $category->name }}
+                       {{ $category->name }}
                     </h1>
                 </div>
             </div>
