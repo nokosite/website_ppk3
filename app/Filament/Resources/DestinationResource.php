@@ -54,6 +54,9 @@ class DestinationResource extends Resource
                 Forms\Components\RichEditor::make('description')
                     ->required()
                     ->columnSpanFull(),
+                Forms\Components\Textarea::make('google_maps')
+                    ->required()
+                    ->columnSpanFull(),
             ]);
     }
 
