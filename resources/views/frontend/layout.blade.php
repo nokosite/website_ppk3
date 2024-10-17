@@ -20,7 +20,7 @@
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
 
     <!-- Styles -->
-    <link rel="stylesheet" href="/build/assets/app-33e9feea.css" >
+    <link rel="stylesheet" href="/build/assets/app-e7cecb2c.css" >
     <script src="/build/assets/app-cdac73cb.js"></script>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
