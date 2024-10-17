@@ -47,21 +47,41 @@
                 <h2 class="font-nanum font-bold text-5xl lg:text-6xl capitalize text-sky-500">Galeri Desa Jehem</h2>
             </div>
 
+            <div id="loading" class="text-center">
+                <div class="animate-spin rounded-full h-16 w-16 border-t-4 border-sky-500 border-solid mx-auto"></div>
+                <p class="mt-4 text-lg text-slate-600">Memuat galeri...</p>
+            </div>
+
             <!-- Masonry Grid -->
-            <div class="columns-1 md:columns-2 lg:columns-3 gap-4 space-y-4">
-                @foreach($destination->destination_galleries as $gallery)
-                <div class="break-inside-avoid overflow-hidden rounded-lg shadow-lg">
-                    <img
-                        loading="lazy"
-                        role="presentation" 
-                        decoding="async"
-                        fetchpriority="high"
-                        src="{{ Storage::url($gallery->gallery) }}" 
-                        alt="Galeri Image" class="w-full h-auto object-cover">
+            <div id="galeri-content" class="hidden">
+                <div class="columns-1 md:columns-2 lg:columns-3 gap-4 space-y-4">
+                    @foreach($destination->destination_galleries as $gallery)
+                    <div class="break-inside-avoid overflow-hidden rounded-lg shadow-lg">
+                        <img
+                            loading="lazy"
+                            role="presentation" 
+                            decoding="async"
+                            fetchpriority="high"
+                            src="{{ Storage::url($gallery->gallery) }}" 
+                            alt="Galeri Image" class="w-full h-auto object-cover">
+                    </div>
+                    @endforeach
                 </div>
-                @endforeach
+            </div>
+        </div>
+
+        {{-- Gmaps Section --}}
+        <div class="container mx-auto px-4 py-10">
+            <div class="text-center mb-10">
+                <h2 class="font-nanum font-bold text-5xl lg:text-6xl capitalize text-sky-500">Google Maps</h2>
+            </div>
+
+            <div class="flex justify-center items-center">
+                {!! $destination->google_maps !!}
             </div>
         </div>
     </section>
+    
+</section>
 
 @endsection
