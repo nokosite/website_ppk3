@@ -3,7 +3,7 @@
 @section('content')
     {{-- Hero Section Start --}}
     <section id="home">
-        <div class="relative w-full h-screen bg-no-repeat bg-center bg-cover bg-fixed" style="background-image: url({{ asset('assets/bg.webp') }})">
+        <div class="relative w-full h-screen bg-no-repeat bg-center bg-cover bg-fixed" style="background-image: url({{ asset('assets/bg4.webp') }})">
             <div class="absolute inset-0 bg-black opacity-50"></div>
             <div class="absolute inset-0 flex flex-col justify-center items-center text-center p-6">
                 <div class="container mx-auto">
@@ -108,49 +108,49 @@
                 <div class="flex flex-wrap items-center justify-center space-x-8 lg:space-x-12">
                     {{-- Logo 1 --}}
                     <a href="#" class="flex justify-center items-center max-w-[100px] sm:max-w-[120px] mx-4">
-                        <img class="w-full h-auto object-contain" src="{{ asset('assets/logo/bem.webp') }}"
+                        <img loading="lazy" class="w-full h-auto object-contain" src="{{ asset('assets/logo/bem.webp') }}"
                             alt="Logo Bem">
                     </a>
 
                     {{-- Logo 2 --}}
                     <a href="#" class="flex justify-center items-center max-w-[100px] sm:max-w-[120px] mx-4">
-                        <img class="w-full h-auto object-contain" src="{{ asset('assets/logo/desa_jehem.webp') }}"
+                        <img loading="lazy" class="w-full h-auto object-contain" src="{{ asset('assets/logo/desa_jehem.webp') }}"
                             alt="Logo Desa Jehem">
                     </a>
 
                     {{-- Logo 3 --}}
                     <a href="#" class="flex justify-center items-center max-w-[100px] sm:max-w-[120px] mx-4">
-                        <img class="w-full h-auto object-contain" src="{{ asset('assets/logo/kampusmerdeka.webp') }}"
+                        <img loading="lazy" class="w-full h-auto object-contain" src="{{ asset('assets/logo/kampusmerdeka.webp') }}"
                             alt="Logo Kampus Merdeka">
                     </a>
 
                     {{-- Logo 4 --}}
                     <a href="#" class="flex justify-center items-center max-w-[100px] sm:max-w-[120px] mx-4">
-                        <img class="w-full h-auto object-contain" src="{{ asset('assets/logo/kemendikbud.webp') }}"
+                        <img loading="lazy" class="w-full h-auto object-contain" src="{{ asset('assets/logo/kemendikbud.webp') }}"
                             alt="Logo Kemendikbud">
                     </a>
 
                     {{-- Logo 5 --}}
                     <a href="#" class="flex justify-center items-center max-w-[100px] sm:max-w-[120px] mx-4">
-                        <img class="w-full h-auto object-contain" src="{{ asset('assets/logo/logo_ppk.webp') }}"
+                        <img loading="lazy" class="w-full h-auto object-contain" src="{{ asset('assets/logo/logo_ppk.webp') }}"
                             alt="Logo PPK">
                     </a>
 
                     {{-- Logo 6 --}}
                     <a href="#" class="flex justify-center items-center max-w-[100px] sm:max-w-[120px] mx-4">
-                        <img class="w-full h-auto object-contain" src="{{ asset('assets/logo/ppk_ormawa.webp') }}"
+                        <img loading="lazy" class="w-full h-auto object-contain" src="{{ asset('assets/logo/ppk_ormawa.webp') }}"
                             alt="Logo PPK Ormawa">
                     </a>
 
                     {{-- Logo 7 --}}
                     <a href="#" class="flex justify-center items-center max-w-[100px] sm:max-w-[120px] mx-4">
-                        <img class="w-full h-auto object-contain" src="{{ asset('assets/logo/primu.webp') }}"
+                        <img loading="lazy" class="w-full h-auto object-contain" src="{{ asset('assets/logo/primu.webp') }}"
                             alt="Logo Primu">
                     </a>
 
                     {{-- Logo 8 --}}
                     <a href="#" class="flex justify-center items-center max-w-[100px] sm:max-w-[120px] mx-4">
-                        <img class="w-full h-auto object-contain" src="{{ asset('assets/logo/logo_desa.webp') }}"
+                        <img loading="lazy" class="w-full h-auto object-contain" src="{{ asset('assets/logo/logo_desa.webp') }}"
                             alt="Logo Desa">
                     </a>
                 </div>
@@ -166,27 +166,35 @@
                 <h2 class="font-nanum font-bold text-5xl lg:text-6xl capitalize text-sky-500">Galeri Desa Jehem</h2>
             </div>
     
-            <!-- Masonry Grid Wrapper -->
-            <div class="columns-1 md:columns-2 lg:columns-3 gap-4 space-y-4">
-                @foreach($galleries->take(3) as $gallery) <!-- Menampilkan maksimal 3 foto -->
-                <div class="break-inside-avoid">
-                    <img src="{{ Storage::url($gallery->gallery) }}" 
-                         alt="Galeri Image" 
-                         class="w-full h-auto rounded-lg shadow-lg">
-                </div>
-                @endforeach
+            <!-- Loading Indicator -->
+            <div id="loading" class="text-center">
+                <div class="animate-spin rounded-full h-16 w-16 border-t-4 border-sky-500 border-solid mx-auto"></div>
+                <p class="mt-4 text-lg text-slate-600">Memuat galeri...</p>
             </div>
     
-            <!-- Tombol "See More" jika foto lebih dari 3 -->
-            @if($gallery->count() > 3)
-            <div class="text-center mt-8">
-                <a href="{{ route('galeri') }}"
-                   class="bg-sky-500 text-white px-6 py-2 rounded-md hover:bg-sky-700 transition">
-                    See More
-                </a>
+            <!-- Galeri Konten -->
+            <div id="galeri-content" class="hidden">
+                <div class="columns-1 md:columns-2 lg:columns-3 gap-4 space-y-4">
+                    @foreach($galleries->take(3) as $gallery) <!-- Menampilkan maksimal 3 foto -->
+                    <div class="break-inside-avoid">
+                        <img src="{{ Storage::url($gallery->gallery) }}" 
+                             alt="Galeri Image" 
+                             class="w-full h-auto rounded-lg shadow-lg">
+                    </div>
+                    @endforeach
+                </div>
+    
+                @if($gallery->count() > 3)
+                <div class="text-center mt-8">
+                    <a href="{{ route('galeri') }}"
+                       class="bg-sky-500 text-white px-6 py-2 rounded-md hover:bg-sky-700 transition">
+                        See More
+                    </a>
+                </div>
+                @endif
             </div>
-            @endif
         </div>
     </section>
+    
     
 @endsection
