@@ -22,7 +22,7 @@
     <!-- Styles -->
     <link rel="stylesheet" href="/build/assets/app-e7cecb2c.css" >
     <script src="/build/assets/app-cdac73cb.js"></script>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
 </head>
 
 
