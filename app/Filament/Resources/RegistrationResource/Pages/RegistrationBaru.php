@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Blade;
 use Filament\Forms\Components\Component;
 use Filament\Forms\Components\TextInput;
  
-class Registration extends Register
+class RegistrationBaru extends Register
 {
     protected ?string $maxWidth = '2xl';
  

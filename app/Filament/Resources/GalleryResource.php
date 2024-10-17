@@ -19,6 +19,10 @@ class GalleryResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    protected static ?string $navigationGroup = 'Blog Menu';
+
+    protected static ?string $navigationLabel = 'Post Galeri';
+
     public static function form(Form $form): Form
     {
         return $form

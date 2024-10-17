@@ -21,6 +21,10 @@ class DestinationResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    protected static ?string $navigationGroup = 'Blog Menu';
+
+    protected static ?string $navigationLabel = 'Add Post';
+
     public static function form(Form $form): Form
     {
         return $form
