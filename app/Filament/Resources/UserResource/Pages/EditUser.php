@@ -16,4 +16,15 @@ class EditUser extends EditRecord
             Actions\DeleteAction::make(),
         ];
     }
+
+    protected function mutateFormDataBeforeSave(array $data): array
+    {
+        // Sync roles jika ada perubahan
+        if (isset($data['roles'])) {
+            $this->record->syncRoles($data['roles']);
+            unset($data['roles']); // Remove dari data karena bukan field di model
+        }
+        
+        return $data;
+    }
 }
