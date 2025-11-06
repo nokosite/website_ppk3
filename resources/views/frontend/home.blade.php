@@ -3,7 +3,7 @@
 @section('content')
     {{-- Hero Section Start --}}
     <section id="home">
-        <div class="relative w-full h-screen bg-no-repeat bg-center bg-cover bg-fixed" style="background-image: url({{ asset('assets/bg4.webp') }})">
+        <div class="relative w-full h-screen bg-no-repeat bg-center bg-cover bg-fixed" style="background-image: url({{ url('public/assets/bg4.webp') }})">
             <div class="absolute inset-0 bg-black opacity-50"></div>
             <div class="absolute inset-0 flex flex-col justify-center items-center text-center p-6">
                 <div class="container mx-auto">
@@ -108,49 +108,49 @@
                 <div class="flex flex-wrap items-center justify-center space-x-8 lg:space-x-12">
                     {{-- Logo 1 --}}
                     <a href="#" class="flex justify-center items-center max-w-[100px] sm:max-w-[120px] mx-4">
-                        <img loading="lazy" class="w-full h-auto object-contain" src="{{ asset('assets/logo/bem.webp') }}"
+                        <img loading="lazy" class="w-full h-auto object-contain" src="{{ url('public/assets/logo/bem.webp') }}"
                             alt="Logo Bem">
                     </a>
 
                     {{-- Logo 2 --}}
                     <a href="#" class="flex justify-center items-center max-w-[100px] sm:max-w-[120px] mx-4">
-                        <img loading="lazy" class="w-full h-auto object-contain" src="{{ asset('assets/logo/desa_jehem.webp') }}"
+                        <img loading="lazy" class="w-full h-auto object-contain" src="{{ url('public/assets/logo/desa_jehem.webp') }}"
                             alt="Logo Desa Jehem">
                     </a>
 
                     {{-- Logo 3 --}}
                     <a href="#" class="flex justify-center items-center max-w-[100px] sm:max-w-[120px] mx-4">
-                        <img loading="lazy" class="w-full h-auto object-contain" src="{{ asset('assets/logo/kampusmerdeka.webp') }}"
+                        <img loading="lazy" class="w-full h-auto object-contain" src="{{ url('public/assets/logo/kampusmerdeka.webp') }}"
                             alt="Logo Kampus Merdeka">
                     </a>
 
                     {{-- Logo 4 --}}
                     <a href="#" class="flex justify-center items-center max-w-[100px] sm:max-w-[120px] mx-4">
-                        <img loading="lazy" class="w-full h-auto object-contain" src="{{ asset('assets/logo/kemendikbud.webp') }}"
+                        <img loading="lazy" class="w-full h-auto object-contain" src="{{ url('public/assets/logo/kemendikbud.webp') }}"
                             alt="Logo Kemendikbud">
                     </a>
 
                     {{-- Logo 5 --}}
                     <a href="#" class="flex justify-center items-center max-w-[100px] sm:max-w-[120px] mx-4">
-                        <img loading="lazy" class="w-full h-auto object-contain" src="{{ asset('assets/logo/logo_ppk.webp') }}"
+                        <img loading="lazy" class="w-full h-auto object-contain" src="{{ url('public/assets/logo/logo_ppk.webp') }}"
                             alt="Logo PPK">
                     </a>
 
                     {{-- Logo 6 --}}
                     <a href="#" class="flex justify-center items-center max-w-[100px] sm:max-w-[120px] mx-4">
-                        <img loading="lazy" class="w-full h-auto object-contain" src="{{ asset('assets/logo/ppk_ormawa.webp') }}"
+                        <img loading="lazy" class="w-full h-auto object-contain" src="{{ url('public/assets/logo/ppk_ormawa.webp') }}"
                             alt="Logo PPK Ormawa">
                     </a>
 
                     {{-- Logo 7 --}}
                     <a href="#" class="flex justify-center items-center max-w-[100px] sm:max-w-[120px] mx-4">
-                        <img loading="lazy" class="w-full h-auto object-contain" src="{{ asset('assets/logo/primu.webp') }}"
+                        <img loading="lazy" class="w-full h-auto object-contain" src="{{ url('public/assets/logo/primu.webp') }}"
                             alt="Logo Primu">
                     </a>
 
                     {{-- Logo 8 --}}
                     <a href="#" class="flex justify-center items-center max-w-[100px] sm:max-w-[120px] mx-4">
-                        <img loading="lazy" class="w-full h-auto object-contain" src="{{ asset('assets/logo/logo_desa.webp') }}"
+                        <img loading="lazy" class="w-full h-auto object-contain" src="{{ url('public/assets/logo/logo_desa.webp') }}"
                             alt="Logo Desa">
                     </a>
                 </div>

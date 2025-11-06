@@ -3,7 +3,7 @@
 @section('content')
     <section id="index-destinasi">
         <div id="home" class="relative w-full h-screen bg-no-repeat bg-center bg-cover bg-fixed"
-            style="background-image: url({{ asset('assets/bg4.webp') }});">
+            style="background-image: url({{ url('public/assets/bg4.webp') }});">
             {{-- Overlay --}}
             <div class="absolute inset-0 bg-black opacity-50"></div>
 
