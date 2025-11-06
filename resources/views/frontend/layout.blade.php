@@ -20,9 +20,7 @@
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
 
     <!-- Styles -->
-    <link rel="stylesheet" href="{{ asset('build/assets/app-e7cecb2c.css') }}" >
-    <script src="{{ asset('build/assets/app-cdac73cb.js') }}"></script>
-    {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 
@@ -166,59 +164,61 @@
     
     <!-- Footer End -->
     <script>
-            // Untuk membuat Navbar Fixed
-        window.onscroll = function () {
-            const header = document.querySelector('header');
-            const fixedNav = header.offsetTop;
-    
-            if (window.pageYOffset > fixedNav) {
-                header.classList.add('navbar-fixed')
-            } else {
-                header.classList.remove('navbar-fixed')
-            }
-        }
-    
-    
-        // Hamburger Navbar ketika mode mobile 
-        const hamburger = document.querySelector('#hamburger')
-        // Variable untuk memunculkan menu beranda dll
-        const navMenu = document.querySelector('#nav-menu')
-    
-        hamburger.addEventListener('click', function() {
-            // untuk toggle ketika mau memunculkan menu beranda dll
-            hamburger.classList.toggle('hamburger-active')
-            // ketika burger nya sudah di klik
-            navMenu.classList.toggle('hidden')
-            
-        });
-    
-    
-        // Dropdown Toggle Logic
-        const dropdownBtn = document.getElementById('categoryDropdownBtn');
-        const dropdownMenu = document.getElementById('categoryDropdownMenu');
-    
-        dropdownBtn.addEventListener('click', () => {
-            // Toggle the visibility of the dropdown menu
-            dropdownMenu.classList.toggle('hidden');
-        });
-    
-        // Optional: Close the dropdown if clicked outside
-        document.addEventListener('click', (event) => {
-            const isClickInside = dropdownBtn.contains(event.target) || dropdownMenu.contains(event.target);
-            if (!isClickInside) {
-                dropdownMenu.classList.add('hidden');
-            }
-        });
-
-        // Untuk loading 
+        // Wait for DOM to be fully loaded
         document.addEventListener('DOMContentLoaded', function () {
-            setTimeout(function () {
-                // Sembunyikan indikator loading dan tampilkan konten galeri
-                document.getElementById('loading').classList.add('hidden');
-                document.getElementById('galeri-content').classList.remove('hidden');
-            }, 5000); // 5 detik delay
-        });
+            // Untuk membuat Navbar Fixed
+            window.onscroll = function () {
+                const header = document.querySelector('header');
+                if (header) {
+                    const fixedNav = header.offsetTop;
+                    if (window.pageYOffset > fixedNav) {
+                        header.classList.add('navbar-fixed');
+                    } else {
+                        header.classList.remove('navbar-fixed');
+                    }
+                }
+            };
 
+            // Hamburger Navbar ketika mode mobile
+            const hamburger = document.querySelector('#hamburger');
+            const navMenu = document.querySelector('#nav-menu');
+            
+            if (hamburger && navMenu) {
+                hamburger.addEventListener('click', function() {
+                    hamburger.classList.toggle('hamburger-active');
+                    navMenu.classList.toggle('hidden');
+                });
+            }
+
+            // Dropdown Toggle Logic - hanya jika element ada
+            const dropdownBtn = document.getElementById('categoryDropdownBtn');
+            const dropdownMenu = document.getElementById('categoryDropdownMenu');
+            
+            if (dropdownBtn && dropdownMenu) {
+                dropdownBtn.addEventListener('click', () => {
+                    dropdownMenu.classList.toggle('hidden');
+                });
+
+                // Close the dropdown if clicked outside
+                document.addEventListener('click', (event) => {
+                    const isClickInside = dropdownBtn.contains(event.target) || dropdownMenu.contains(event.target);
+                    if (!isClickInside) {
+                        dropdownMenu.classList.add('hidden');
+                    }
+                });
+            }
+
+            // Untuk loading - hanya jika element ada
+            const loadingElement = document.getElementById('loading');
+            const galeriContent = document.getElementById('galeri-content');
+            
+            if (loadingElement && galeriContent) {
+                setTimeout(function () {
+                    loadingElement.classList.add('hidden');
+                    galeriContent.classList.remove('hidden');
+                }, 5000); // 5 detik delay
+            }
+        });
     </script>
 </body>
 
