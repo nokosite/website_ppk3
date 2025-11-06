@@ -19,6 +19,7 @@ use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use App\Filament\Resources\RegistrationResource\Pages\RegistrationBaru;
 use App\Filament\Widgets\TrendsChart;
+use App\Filament\Widgets\SystemHealthStats;
  
 
 class AdminPanelProvider extends PanelProvider
@@ -45,6 +46,7 @@ public function panel(Panel $panel): Panel
             ->widgets([
                 Widgets\AccountWidget::class,
                 TrendsChart::class,
+                SystemHealthStats::class,
             ])
             
             ->middleware([
