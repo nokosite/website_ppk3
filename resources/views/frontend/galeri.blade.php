@@ -27,7 +27,7 @@
                     {{-- Card 1 --}}
                         @foreach($galleries as $gallery) <!-- Menampilkan maksimal 3 foto -->
                         <div class="break-inside-avoid">
-                            <img src="{{ Storage::url($gallery->gallery) }}" 
+                            <img src="{{ storage_url_safe($gallery->gallery) }}" 
                                  alt="Galeri Image" 
                                  class="w-full h-auto rounded-lg shadow-lg">
                         </div>

@@ -4,7 +4,7 @@
     <section id="see-more">
         <!-- Hero Section -->
         <div id="home" class="relative w-full h-screen bg-no-repeat bg-center bg-cover bg-fixed" 
-            style="background-image: url({{ Storage::url($destination->gambar) }});">
+            style="background-image: url({{ storage_url_safe($destination->gambar) }});">
             <div class="absolute inset-0 bg-black opacity-50"></div>
 
             <!-- Hero Content -->
@@ -27,7 +27,7 @@
                     role="presentation" 
                     decoding="async"
                     fetchpriority="high"
-                    class="rounded-md shadow-lg" src="{{ Storage::url($destination->gambar) }}" alt="Gambar Destinasi">
+                    class="rounded-md shadow-lg" src="{{ storage_url_safe($destination->gambar) }}" alt="Gambar Destinasi">
                 </div>
 
                 <!-- Right Content -->
@@ -62,7 +62,7 @@
                             role="presentation" 
                             decoding="async"
                             fetchpriority="high"
-                            src="{{ Storage::url($gallery->gallery) }}" 
+                            src="{{ storage_url_safe($gallery->gallery) }}" 
                             alt="Galeri Image" class="w-full h-auto object-cover">
                     </div>
                     @endforeach

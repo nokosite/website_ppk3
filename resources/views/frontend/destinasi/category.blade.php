@@ -27,7 +27,7 @@
                 @foreach($category->destinations as $destination)
                     <div class="relative overflow-hidden rounded-2xl shadow-lg group">
                         <img class="h-64 w-full object-cover transition-transform group-hover:scale-110 duration-200"
-                            src="{{ Storage::url($destination->gambar) }}" alt="Desa Jehem Image 1">
+                            src="{{ storage_url_safe($destination->gambar) }}" alt="Desa Jehem Image 1">
                         <div class="absolute inset-0 flex items-end bg-gradient-to-t from-black/60 to-transparent">
                             <div class="p-4 text-white">
                                 <h3 class="text-xl font-bold mb-2">{{ $destination->judul }}</h3>
