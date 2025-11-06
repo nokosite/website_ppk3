@@ -20,7 +20,19 @@
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
 
     <!-- Styles -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @php
+        $manifestPath = public_path('build/manifest.json');
+        if (file_exists($manifestPath)) {
+            $manifest = json_decode(file_get_contents($manifestPath), true);
+            $cssFile = $manifest['resources/css/app.css']['file'] ?? 'assets/app-e7cecb2c.css';
+            $jsFile = $manifest['resources/js/app.js']['file'] ?? 'assets/app-cdac73cb.js';
+        } else {
+            $cssFile = 'assets/app-e7cecb2c.css';
+            $jsFile = 'assets/app-cdac73cb.js';
+        }
+    @endphp
+    <link rel="stylesheet" href="{{ asset('build/' . $cssFile) }}">
+    <script src="{{ asset('build/' . $jsFile) }}" defer></script>
 </head>
 
 
