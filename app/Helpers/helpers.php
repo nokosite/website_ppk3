@@ -17,7 +17,10 @@ if (!function_exists('storage_url_safe')) {
         try {
             // Cek apakah file ada di storage
             if (\Illuminate\Support\Facades\Storage::disk('public')->exists($path)) {
-                return \Illuminate\Support\Facades\Storage::url($path);
+                // Gunakan route khusus untuk serve file storage (tanpa symlink)
+                // Path: /storage/{$path}
+                $baseUrl = rtrim(config('app.url'), '/');
+                return $baseUrl . '/storage/' . ltrim($path, '/');
             }
         } catch (\Exception $e) {
             // Jika ada error, return fallback
