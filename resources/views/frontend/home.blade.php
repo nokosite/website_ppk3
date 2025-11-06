@@ -184,7 +184,7 @@
                     @endforeach
                 </div>
     
-                @if($gallery->count() > 3)
+                @if($galleries->count() > 3)
                 <div class="text-center mt-8">
                     <a href="{{ route('galeri') }}"
                        class="bg-sky-500 text-white px-6 py-2 rounded-md hover:bg-sky-700 transition">
