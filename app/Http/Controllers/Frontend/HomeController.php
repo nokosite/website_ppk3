@@ -15,14 +15,7 @@ class HomeController extends Controller
         $destinations = Destination::get();
         $galleries = Gallery::get();
         $categories = Category::get();
-        
-        // SEO Meta Data
-        $seo = seo_meta(
-            title: 'Beranda',
-            description: 'Selamat datang di Desa Wisata Jehem. Jelajahi keindahan alam, budaya, dan destinasi wisata menarik di desa wisata terbaik di Indonesia.',
-            url: route('home')
-        );
 
-        return view('frontend.home',compact('destinations','galleries','categories', 'seo'));
+        return view('frontend.home',compact('destinations','galleries','categories'));
     }
 }

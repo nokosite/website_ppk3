@@ -16,15 +16,7 @@ class GalleryController extends Controller
     {
         $galleries = Gallery::get();
         $categories = Category::get();
-        
-        // SEO Meta Data
-        $seo = seo_meta(
-            title: 'Galeri Foto',
-            description: 'Lihat koleksi foto menarik dari berbagai destinasi wisata di Desa Wisata Jehem. Dokumentasi visual keindahan alam dan budaya desa.',
-            url: route('galeri')
-        );
-        
-        return view('frontend.galeri', compact('galleries', 'categories', 'seo'));
+        return view('frontend.galeri', compact('galleries', 'categories'));
     }
 
     /**
