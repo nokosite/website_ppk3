@@ -5,15 +5,41 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{{ config('app.name') }}</title>
+    @php
+        // Get SEO data from view or use defaults
+        $seo = $seo ?? seo_meta();
+    @endphp
 
-    {{-- SEO Meta Data --}}
-    <meta name="title" content="Desa Wisata Jehem">
-    <meta name="description" content="Selamat Datang di Desa Wisata Jehem">
+    {{-- Primary Meta Tags --}}
+    <title>{{ $seo['title'] }}</title>
+    <meta name="title" content="{{ $seo['title'] }}">
+    <meta name="description" content="{{ $seo['description'] }}">
     <meta name="robots" content="index, follow">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="language" content="Indonesia">
-    <meta name="author" content="MahesKanoko">
+    <meta name="author" content="Desa Wisata Jehem">
+    <link rel="canonical" href="{{ $seo['url'] }}">
+
+    {{-- Open Graph / Facebook --}}
+    <meta property="og:type" content="{{ $seo['type'] }}">
+    <meta property="og:url" content="{{ $seo['url'] }}">
+    <meta property="og:title" content="{{ $seo['title'] }}">
+    <meta property="og:description" content="{{ $seo['description'] }}">
+    <meta property="og:image" content="{{ $seo['image'] }}">
+    <meta property="og:site_name" content="{{ $seo['site_name'] }}">
+    <meta property="og:locale" content="id_ID">
+
+    {{-- Twitter --}}
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="{{ $seo['url'] }}">
+    <meta name="twitter:title" content="{{ $seo['title'] }}">
+    <meta name="twitter:description" content="{{ $seo['description'] }}">
+    <meta name="twitter:image" content="{{ $seo['image'] }}">
+
+    {{-- Additional Meta Tags --}}
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    {{-- Structured Data & Additional Head Content --}}
+    @stack('head')
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">

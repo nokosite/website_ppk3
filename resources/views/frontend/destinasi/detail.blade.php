@@ -1,5 +1,24 @@
 @extends('frontend.layout')
 
+@push('head')
+    {{-- Structured Data (JSON-LD) --}}
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TouristAttraction",
+        "name": "{{ $destination->judul }}",
+        "description": "{{ strip_tags($destination->excerpt) }}",
+        "image": "{{ storage_url_safe($destination->gambar) }}",
+        "url": "{{ route('destination.show', $destination->slug) }}",
+        "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "ID",
+            "addressRegion": "Bali"
+        }
+    }
+    </script>
+@endpush
+
 @section('content')
     <section id="see-more">
         <!-- Hero Section -->
