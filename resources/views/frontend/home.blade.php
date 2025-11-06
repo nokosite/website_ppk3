@@ -108,49 +108,49 @@
                 <div class="flex flex-wrap items-center justify-center space-x-8 lg:space-x-12">
                     {{-- Logo 1 --}}
                     <a href="#" class="flex justify-center items-center max-w-[100px] sm:max-w-[120px] mx-4">
-                        <img loading="lazy" class="w-full h-auto object-contain" src="{{ asset('assets/logo/bem.webp') }}"
+                        <img loading="lazy" class="w-full h-auto object-contain" src="{{ asset('storage/assets/logo/bem.webp') }}"
                             alt="Logo Bem">
                     </a>
 
                     {{-- Logo 2 --}}
                     <a href="#" class="flex justify-center items-center max-w-[100px] sm:max-w-[120px] mx-4">
-                        <img loading="lazy" class="w-full h-auto object-contain" src="{{ asset('assets/logo/desa_jehem.webp') }}"
+                        <img loading="lazy" class="w-full h-auto object-contain" src="{{ asset('storage/assets/logo/desa_jehem.webp') }}"
                             alt="Logo Desa Jehem">
                     </a>
 
                     {{-- Logo 3 --}}
                     <a href="#" class="flex justify-center items-center max-w-[100px] sm:max-w-[120px] mx-4">
-                        <img loading="lazy" class="w-full h-auto object-contain" src="{{ asset('assets/logo/kampusmerdeka.webp') }}"
+                        <img loading="lazy" class="w-full h-auto object-contain" src="{{ asset('storage/assets/logo/kampusmerdeka.webp') }}"
                             alt="Logo Kampus Merdeka">
                     </a>
 
                     {{-- Logo 4 --}}
                     <a href="#" class="flex justify-center items-center max-w-[100px] sm:max-w-[120px] mx-4">
-                        <img loading="lazy" class="w-full h-auto object-contain" src="{{ asset('assets/logo/kemendikbud.webp') }}"
+                        <img loading="lazy" class="w-full h-auto object-contain" src="{{ asset('storage/assets/logo/kemendikbud.webp') }}"
                             alt="Logo Kemendikbud">
                     </a>
 
                     {{-- Logo 5 --}}
                     <a href="#" class="flex justify-center items-center max-w-[100px] sm:max-w-[120px] mx-4">
-                        <img loading="lazy" class="w-full h-auto object-contain" src="{{ asset('assets/logo/logo_ppk.webp') }}"
+                        <img loading="lazy" class="w-full h-auto object-contain" src="{{ asset('storage/assets/logo/logo_ppk.webp') }}"
                             alt="Logo PPK">
                     </a>
 
                     {{-- Logo 6 --}}
                     <a href="#" class="flex justify-center items-center max-w-[100px] sm:max-w-[120px] mx-4">
-                        <img loading="lazy" class="w-full h-auto object-contain" src="{{ asset('assets/logo/ppk_ormawa.webp') }}"
+                        <img loading="lazy" class="w-full h-auto object-contain" src="{{ asset('storage/assets/logo/ppk_ormawa.webp') }}"
                             alt="Logo PPK Ormawa">
                     </a>
 
                     {{-- Logo 7 --}}
                     <a href="#" class="flex justify-center items-center max-w-[100px] sm:max-w-[120px] mx-4">
-                        <img loading="lazy" class="w-full h-auto object-contain" src="{{ asset('assets/logo/primu.webp') }}"
+                        <img loading="lazy" class="w-full h-auto object-contain" src="{{ asset('storage/assets/logo/primu.webp') }}"
                             alt="Logo Primu">
                     </a>
 
                     {{-- Logo 8 --}}
                     <a href="#" class="flex justify-center items-center max-w-[100px] sm:max-w-[120px] mx-4">
-                        <img loading="lazy" class="w-full h-auto object-contain" src="{{ asset('assets/logo/logo_desa.webp') }}"
+                        <img loading="lazy" class="w-full h-auto object-contain" src="{{ asset('storage/assets/logo/logo_desa.webp') }}"
                             alt="Logo Desa">
                     </a>
                 </div>
@@ -184,7 +184,7 @@
                     @endforeach
                 </div>
     
-                @if($gallery->count() > 3)
+                @if($galleries->count() > 3)
                 <div class="text-center mt-8">
                     <a href="{{ route('galeri') }}"
                        class="bg-sky-500 text-white px-6 py-2 rounded-md hover:bg-sky-700 transition">
