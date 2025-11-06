@@ -29,6 +29,27 @@ if (!$publicPath || !is_dir($publicPath)) {
 }
 
 // Pindah working directory ke folder public
+// Sebelum boot Laravel, opsional: muat .env dari direktori ini (public_html)
+// Hanya jika Anda benar-benar perlu override variabel tanpa mengubah .env project.
+// File ini TIDAK disarankan untuk menyimpan kredensial sensitif di lokasi publik.
+// Jika file .env ada di direktori ini, kita load dulu menggunakan phpdotenv.
+
+$projectRoot = realpath($publicPath . '/..');
+if ($projectRoot && is_dir($projectRoot)) {
+    $autoload = $projectRoot . '/vendor/autoload.php';
+    if (is_file($autoload)) {
+        require_once $autoload;
+        if (is_file(__DIR__ . '/.env')) {
+            try {
+                $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+                $dotenv->safeLoad();
+            } catch (Throwable $e) {
+                // abaikan error loading env tambahan
+            }
+        }
+    }
+}
+
 chdir($publicPath);
 
 // Jalankan index.php asli Laravel
