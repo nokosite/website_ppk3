@@ -1,12 +1,30 @@
 <?php
-// Path absolut ke folder public Laravel Anda.
-// Contoh: jika struktur di server: /home/USER/laravel_app/public
-$publicPath = __DIR__ . '/../laravel_app/public';
+// Path ke folder public Laravel
+// Sesuaikan dengan nama folder project Anda di Hostinger
+// Jika project ada di level yang sama dengan public_html: ../website_ppk3/public
+// Jika project ada di dalam public_html: ./website_ppk3/public
+
+// Coba beberapa kemungkinan path
+$possiblePaths = [
+    __DIR__ . '/../website_ppk3/public',  // Project di level yang sama dengan public_html
+    __DIR__ . '/../public',                 // Jika public langsung di atas public_html
+    __DIR__ . '/public',                    // Jika public ada di dalam public_html
+];
+
+$publicPath = null;
+foreach ($possiblePaths as $path) {
+    if (is_dir($path)) {
+        $publicPath = $path;
+        break;
+    }
+}
 
 // Validasi path
-if (!is_dir($publicPath)) {
+if (!$publicPath || !is_dir($publicPath)) {
     http_response_code(500);
-    echo 'Invalid public path: ' . htmlspecialchars($publicPath, ENT_QUOTES, 'UTF-8');
+    echo 'Invalid public path. Tried: ' . implode(', ', array_map(function($p) {
+        return htmlspecialchars($p, ENT_QUOTES, 'UTF-8');
+    }, $possiblePaths));
     exit;
 }
 
