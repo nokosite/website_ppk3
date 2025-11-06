@@ -1,56 +1,55 @@
 <?php
-// Path ke folder public Laravel
-// Sesuaikan dengan nama folder project Anda di Hostinger
-// Jika project ada di level yang sama dengan public_html: ../website_ppk3/public
-// Jika project ada di dalam public_html: ./website_ppk3/public
 
-// Coba beberapa kemungkinan path
-$possiblePaths = [
-    __DIR__ . '/../website_ppk3/public',  // Project di level yang sama dengan public_html
-    __DIR__ . '/../public',                 // Jika public langsung di atas public_html
-    __DIR__ . '/public',                    // Jika public ada di dalam public_html
-];
+use Illuminate\Contracts\Http\Kernel;
+use Illuminate\Http\Request;
 
-$publicPath = null;
-foreach ($possiblePaths as $path) {
-    if (is_dir($path)) {
-        $publicPath = $path;
-        break;
-    }
+define('LARAVEL_START', microtime(true));
+
+/*
+|--------------------------------------------------------------------------
+| Check If The Application Is Under Maintenance
+|--------------------------------------------------------------------------
+|
+| If the application is in maintenance / demo mode via the "down" command
+| we will load this file so that any pre-rendered content can be shown
+| instead of starting the framework, which could cause an exception.
+|
+*/
+
+if (file_exists($maintenance = __DIR__.'/storage/framework/maintenance.php')) {
+    require $maintenance;
 }
 
-// Validasi path
-if (!$publicPath || !is_dir($publicPath)) {
-    http_response_code(500);
-    echo 'Invalid public path. Tried: ' . implode(', ', array_map(function($p) {
-        return htmlspecialchars($p, ENT_QUOTES, 'UTF-8');
-    }, $possiblePaths));
-    exit;
-}
+/*
+|--------------------------------------------------------------------------
+| Register The Auto Loader
+|--------------------------------------------------------------------------
+|
+| Composer provides a convenient, automatically generated class loader for
+| this application. We just need to utilize it! We'll simply require it
+| into the script here so we don't need to manually load our classes.
+|
+*/
 
-// Pindah working directory ke folder public
-// Sebelum boot Laravel, opsional: muat .env dari direktori ini (public_html)
-// Hanya jika Anda benar-benar perlu override variabel tanpa mengubah .env project.
-// File ini TIDAK disarankan untuk menyimpan kredensial sensitif di lokasi publik.
-// Jika file .env ada di direktori ini, kita load dulu menggunakan phpdotenv.
+require __DIR__.'vendor/autoload.php';
 
-$projectRoot = realpath($publicPath . '/..');
-if ($projectRoot && is_dir($projectRoot)) {
-    $autoload = $projectRoot . '/vendor/autoload.php';
-    if (is_file($autoload)) {
-        require_once $autoload;
-        if (is_file(__DIR__ . '/.env')) {
-            try {
-                $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-                $dotenv->safeLoad();
-            } catch (Throwable $e) {
-                // abaikan error loading env tambahan
-            }
-        }
-    }
-}
+/*
+|--------------------------------------------------------------------------
+| Run The Application
+|--------------------------------------------------------------------------
+|
+| Once we have the application, we can handle the incoming request using
+| the application's HTTP kernel. Then, we will send the response back
+| to this client's browser, allowing them to enjoy our application.
+|
+*/
 
-chdir($publicPath);
+$app = require_once __DIR__.'bootstrap/app.php';
 
-// Jalankan index.php asli Laravel
-require $publicPath . '/index.php';
+$kernel = $app->make(Kernel::class);
+
+$response = $kernel->handle(
+    $request = Request::capture()
+)->send();
+
+$kernel->terminate($request, $response);
