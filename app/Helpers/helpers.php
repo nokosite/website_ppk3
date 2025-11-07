@@ -32,3 +32,32 @@ if (!function_exists('storage_url_safe')) {
     }
 }
 
+if (!function_exists('public_asset')) {
+    /**
+     * Get public asset URL yang kompatibel dengan php artisan serve dan production
+     *
+     * @param string $path
+     * @return string
+     */
+    function public_asset(string $path): string
+    {
+        // Gunakan URL dari request jika ada (untuk php artisan serve)
+        $baseUrl = request()->getSchemeAndHttpHost() ?? rtrim(config('app.url'), '/');
+        
+        // Deteksi apakah menggunakan php artisan serve atau production
+        $isLocalServe = str_contains($baseUrl, 'localhost') || 
+                        str_contains($baseUrl, '127.0.0.1') ||
+                        str_contains($baseUrl, ':8000');
+        
+        $path = ltrim($path, '/');
+        
+        // Jika local serve (php artisan serve), tidak perlu prefix 'public/'
+        // Jika production, perlu prefix 'public/' karena index.php di root
+        if ($isLocalServe) {
+            return $baseUrl . '/' . $path;
+        } else {
+            return $baseUrl . '/public/' . $path;
+        }
+    }
+}
+

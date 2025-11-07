@@ -28,7 +28,7 @@ public function panel(Panel $panel): Panel
     {
         return $panel
             ->brandName('Desa Wisata Jehem')
-            ->brandLogo(url('public/assets/logo/desa_jehem.webp'))
+            ->brandLogo(public_asset('assets/logo/desa_jehem.webp'))
             ->brandLogoHeight('4rem')
             ->default()
             ->id('admin')

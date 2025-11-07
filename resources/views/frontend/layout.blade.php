@@ -31,8 +31,8 @@
             $jsFile = 'assets/app-cdac73cb.js';
         }
     @endphp
-    <link rel="stylesheet" href="{{ url('public/build/' . $cssFile) }}">
-    <script src="{{ url('public/build/' . $jsFile) }}" defer></script>
+    <link rel="stylesheet" href="{{ public_asset('build/' . $cssFile) }}">
+    <script src="{{ public_asset('build/' . $jsFile) }}" defer></script>
 </head>
 
 
@@ -44,7 +44,7 @@
             <div class="flex items-center justify-between">
                 <!-- Left: Logo -->
                 <a href="{{ route('home') }}" class="block py-9 w-12 h-12 bg-no-repeat bg-center bg-contain"
-                style="background-image: url({{ url('public/assets/logo/logo_desa.webp') }});"></a>
+                style="background-image: url({{ public_asset('assets/logo/logo_desa.webp') }});"></a>
     
                 <!-- Right: Navigation -->
                 <div class="flex items-center">
@@ -135,7 +135,7 @@
             <div class="flex flex-col lg:flex-row justify-between items-center lg:items-start gap-12">
                 <!-- Logo dan Nama Website -->
                 <div class="flex items-center space-x-3">
-                    <img src="{{ url('public/assets/logo/logo_desa.webp') }}" alt="Logo" class="w-16">
+                    <img src="{{ public_asset('assets/logo/logo_desa.webp') }}" alt="Logo" class="w-16">
                     <span class="text-2xl font-bold text-sky-900">Desa Wisata Jehem</span>
                 </div>
     
